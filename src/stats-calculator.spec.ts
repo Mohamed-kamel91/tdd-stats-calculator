@@ -18,9 +18,11 @@ describe("Stats calculator", () => {
     expect(result.min).toBe(-8);
   });
 
-  it.todo(
-    "returns 53 as the maximum value for sequence [2, 4, 21, -8, 53, 40]"
-  );
+  it("returns 53 as the maximum value for sequence [2, 4, 21, -8, 53, 40]", () => {
+    const sequence = [2, 4, 21, -8, 53, 40];
+    const result = StatsCalculator.calculate(sequence);
+    expect(result.max).toBe(53);
+  });
 
   it.todo(
     "returns 6 as the total number of elements for sequence [2, 4, 21, -8, 53, 40]"
