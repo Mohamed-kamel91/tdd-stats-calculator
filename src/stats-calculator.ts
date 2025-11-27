@@ -5,7 +5,7 @@ export class StatsCalculator {
     return {
       min: sorted[0],
       max: sorted[sorted.length - 1],
-      avg: 0,
+      avg: sorted.reduce((acc, num) => acc + num, 0) / sorted.length,
       count: sorted.length,
     };
   }
