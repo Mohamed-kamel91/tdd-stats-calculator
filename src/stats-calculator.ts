@@ -30,8 +30,9 @@ export class StatsCalculator {
   }
 
   public static calculate(sequence: number[]): StatsResult {
-    const sorted = sequence.sort((a, b) => a - b);
-    
+    const filtered = sequence.filter((num) => num != undefined);
+    const sorted = filtered.sort((a, b) => a - b);
+
     return {
       min: this.getMin(sorted),
       max: this.getMax(sorted),

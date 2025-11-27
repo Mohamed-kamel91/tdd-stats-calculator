@@ -89,4 +89,42 @@ describe("Stats calculator", () => {
       }
     );
   });
+
+  describe("returns correct stats result for a sparse sequences", () => {
+    const testCasesWithSparseSequences = [
+      {
+        sequence: [2, 4, , 21, -8, 53, 40] as number[],
+        min: -8,
+        max: 53,
+        avg: 18.666666666667,
+        count: 6,
+      },
+      {
+        sequence: [10, -5, 32, 0, 17, -12, 22, , ,] as number[],
+        min: -12,
+        max: 32,
+        avg: 9.142857142857142,
+        count: 7,
+      },
+      {
+        sequence: [3, 8, , 15, 21, , 42, 7, , 34, 4, 39] as number[],
+        min: 3,
+        max: 42,
+        avg: 19.22222222222222,
+        count: 9,
+      },
+    ];
+
+    it.each([testCasesWithSparseSequences])(
+      "returns $count for sequence $sequence",
+      ({ sequence, min, max, avg, count }) => {
+        const result = StatsCalculator.calculate(sequence);
+
+        expect(result.min).toBe(min);
+        expect(result.max).toBe(max);
+        expect(result.avg).toBeCloseTo(avg);
+        expect(result.count).toBe(count);
+      }
+    );
+  });
 });
