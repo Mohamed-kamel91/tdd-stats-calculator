@@ -1,12 +1,12 @@
 export class StatsCalculator {
   public static calculate(arr: number[]) {
+    const sorted = arr.sort((a, b) => a - b);
+    
     return {
-      min: 0,
+      min: sorted[0],
       max: 0,
       avg: 0,
       count: 0,
     };
   }
 }
-
-// StatsCalculator.calculate();
