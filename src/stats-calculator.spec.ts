@@ -24,8 +24,13 @@ describe("Stats calculator", () => {
     expect(result.max).toBe(53);
   });
 
-  it.todo(
-    "returns 6 as the total number of elements for sequence [2, 4, 21, -8, 53, 40]"
+  it(
+    "returns 6 as the total number of elements for sequence [2, 4, 21, -8, 53, 40]",
+    () => {
+      const sequence = [2, 4, 21, -8, 53, 40];
+      const result = StatsCalculator.calculate(sequence);
+      expect(result.count).toBe(6);
+    }
   );
 
   it.todo(

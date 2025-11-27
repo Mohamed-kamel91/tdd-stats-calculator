@@ -6,7 +6,7 @@ export class StatsCalculator {
       min: sorted[0],
       max: sorted[sorted.length - 1],
       avg: 0,
-      count: 0,
+      count: sorted.length,
     };
   }
 }
