@@ -31,6 +31,11 @@ export class StatsCalculator {
 
   public static calculate(sequence: number[]): StatsResult {
     const filtered = sequence.filter((num) => num != undefined);
+
+    if (filtered.length === 0) {
+      throw new Error("Cannot calculate stats for empty array");
+    }
+
     const sorted = filtered.sort((a, b) => a - b);
 
     return {

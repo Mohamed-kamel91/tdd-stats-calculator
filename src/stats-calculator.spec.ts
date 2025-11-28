@@ -127,4 +127,20 @@ describe("Stats calculator", () => {
       }
     );
   });
+
+  describe("returns error for empty sequences", () => {
+    const testCasesWithEmptySequences = [
+      { sequence: [] as number[] },
+      { sequence: [, , ,] },
+    ];
+
+    it.each(testCasesWithEmptySequences)(
+      "returns Error: 'Cannot calculate stats for empty array' for sequence $sequence",
+      ({ sequence }) => {
+        expect(() => StatsCalculator.calculate(sequence as number[])).toThrow(
+          "Cannot calculate stats for empty array"
+        );
+      }
+    );
+  });
 });
